@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "Trigger 3",
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
