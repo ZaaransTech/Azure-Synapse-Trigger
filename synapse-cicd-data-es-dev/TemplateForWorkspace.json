@@ -114,7 +114,7 @@
 			"properties": {
 				"description": "Trigger 1",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -145,7 +145,7 @@
 			"properties": {
 				"description": "Trigger 2",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -176,7 +176,7 @@
 			"properties": {
 				"description": "Trigger 3",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [
 					{
 						"pipelineReference": {
