@@ -1,0 +1,71 @@
+{
+	"name": "Notebook 1",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "sparkpoolv31",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "ebbd3106-add1-44d4-a921-8966bcf3d2c9"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "python"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/58f58984-c7ec-4128-9dcf-9b5d77697c3d/resourceGroups/azure-synapse-data-es/providers/Microsoft.Synapse/workspaces/synapse-cicd-data-es-dev/bigDataPools/sparkpoolv31",
+				"name": "sparkpoolv31",
+				"type": "Spark",
+				"endpoint": "https://synapse-cicd-data-es-dev.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sparkpoolv31",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 3,
+				"cores": 8,
+				"memory": 56,
+				"automaticScaleJobs": false
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"from azureml.opendatasets import PublicHolidays\r\n",
+					"\r\n",
+					"from datetime import datetime\r\n",
+					"from dateutil import parser\r\n",
+					"from dateutil.relativedelta import relativedelta\r\n",
+					"\r\n",
+					"end_date = datetime.today()\r\n",
+					"start_date = datetime.today() - relativedelta(months=6)\r\n",
+					"hol = PublicHolidays(start_date=start_date, end_date=end_date)\r\n",
+					"hol_df = hol.to_spark_dataframe()\r\n",
+					"\r\n",
+					"hol_df.write.parquet('/data/holidaydata/', mode = 'overwrite')"
+				],
+				"execution_count": null
+			}
+		]
+	}
+}
