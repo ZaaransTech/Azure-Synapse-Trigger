@@ -1,0 +1,25 @@
+{
+	"name": "Trigger 2",
+	"properties": {
+		"description": "Trigger 2",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Pipeline 1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 10,
+				"startTime": "2023-06-15T11:36:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
